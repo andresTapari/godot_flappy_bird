@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit.wav-ed126ac9936e0dd96d8eba3a0c00625c.sample"
+
+[deps]
+
+source_file="res://assets/flappy-bird-assets-master/audio/hit.wav"
+dest_files=[ "res://.import/hit.wav-ed126ac9936e0dd96d8eba3a0c00625c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
