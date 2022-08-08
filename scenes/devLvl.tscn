@@ -9,10 +9,10 @@ extents = Vector2( 168, 55.5 )
 [node name="Node2D" type="Node2D"]
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 155, 271 )
+position = Vector2( 138, 201 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 141, 480 )
+position = Vector2( 168, 480 )
 __meta__ = {
 "_edit_group_": true
 }
