@@ -18,7 +18,6 @@ config/icon="res://assets/flappy-bird-assets-master/sprites/yellowbird-midflap.p
 
 window/size/width=288
 window/size/height=512
-window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
