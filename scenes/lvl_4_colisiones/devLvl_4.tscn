@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/lvl_3_tuberias/devLvl_3.gd" type="Script" id=1]
+[ext_resource path="res://scenes/lvl_4_colisiones/devLvl_4.gd" type="Script" id=1]
 [ext_resource path="res://scenes/lvl_2_escenario/tierra.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/lvl_4_colisiones/player_4.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/background-day.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
@@ -9,13 +10,12 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 456, 480, 0, 0, 0, 0, -192, 480 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Lvl_4" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 760.0 ],
 "_edit_vertical_guides_": [ 288.0 ]
 }
-terrain_speed = 120
 
 [node name="Background-day" type="Sprite" parent="."]
 position = Vector2( 144, 256 )
@@ -24,7 +24,7 @@ texture = ExtResource( 4 )
 [node name="PipeSpawner" type="Position2D" parent="."]
 position = Vector2( 312, 232 )
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="." groups=["world"]]
 position = Vector2( 0, 0.724 )
 curve = SubResource( 1 )
 __meta__ = {
@@ -52,6 +52,8 @@ rotation = 3.14159
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.2
-autostart = true
+
+[node name="player_4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 75, 244 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
