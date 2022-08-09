@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/lvl_3_tuberias/devLvl_3.gd" type="Script" id=1]
 [ext_resource path="res://scenes/lvl_2_escenario/tierra.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/lvl_3_tuberias/pipe.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/background-day.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
@@ -23,9 +22,6 @@ texture = ExtResource( 4 )
 
 [node name="PipeSpawner" type="Position2D" parent="."]
 position = Vector2( 312, 232 )
-
-[node name="pipe" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 296 )
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 0, 0.724 )

@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Flappy Bird"
-run/main_scene="res://scenes/lvl_1_movimiento_personaje/devLvl.tscn"
+run/main_scene="res://scenes/lvl_1_movimiento_personaje/devLvl_1.tscn"
 config/icon="res://assets/flappy-bird-assets-master/sprites/yellowbird-midflap.png"
 
 [display]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/lvl_2_escenario/devLvl.gd" type="Script" id=1]
+[ext_resource path="res://scenes/lvl_2_escenario/devLvl_2.gd" type="Script" id=1]
 [ext_resource path="res://scenes/lvl_2_escenario/tierra.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/background-day.png" type="Texture" id=4]
 
