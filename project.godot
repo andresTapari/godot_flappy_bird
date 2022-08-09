@@ -11,13 +11,14 @@ config_version=4
 [application]
 
 config/name="Flappy Bird"
-run/main_scene="res://scenes/devLvl.tscn"
+run/main_scene="res://scenes/lvl_1_movimiento_personaje/devLvl.tscn"
 config/icon="res://assets/flappy-bird-assets-master/sprites/yellowbird-midflap.png"
 
 [display]
 
-window/size/width=290
-window/size/height=536
+window/size/width=288
+window/size/height=512
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

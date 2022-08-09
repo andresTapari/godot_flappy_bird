@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/lvl_1_movimiento_personaje/player.gd" type="Script" id=1]
+[ext_resource path="res://assets/flappy-bird-assets-master/sprites/base.png" type="Texture" id=2]
+[ext_resource path="res://scenes/lvl_1_movimiento_personaje/player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 168, 55.5 )
+
+[node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 145, 180 )
+script = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 168, 480 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Base" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 1 )
