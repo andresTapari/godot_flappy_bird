@@ -1,4 +1,4 @@
-# devlvl_5.gd
+# devlvl_6.gd
 extends Node2D
 
 # Variables de exportacion
@@ -7,13 +7,15 @@ export var terrain_speed = 100
 # Precarcamos los pipes
 onready var PIPE = preload("res://scenes/lvl_4_colisiones/pipe_4.tscn")
 
-# Cargamos el hud
-onready var hud_score = get_node("hud_score_5/score_label")
-onready var hud_animations = get_node("hud_score_5/AnimationPlayer")
+# Cargamos nodos del hud
+onready var hud_score_label = get_node("hud_score_6/score_label")
+onready var hud_animations  = get_node("hud_score_6/AnimationPlayer")
+onready var hud_score_panel		= get_node("hud_score_6/score_panel")
+
+
 var terrain: Array = [] 		# Lista donde guardamos el terreno
 var score: int = 0				# Puntaje del jugador
 var game_state: bool = true		#
-
 
 func _ready() -> void:
 	hud_animations.play("idle")
@@ -51,10 +53,13 @@ func _on_Timer_timeout() -> void:
 	self.add_child_below_node($PipeSpawner,newPipe)
 
 func _update_score() -> void:
-	hud_score.text = String(score)
+	hud_score_label.text = String(score)
 	
 func _game_over_screen()-> void:
 	hud_animations.play('game_over')
-
+	hud_score_panel.top_score = score
+	hud_score_panel.get_node('AnimationPlayer').play('game_over_title')
+	
 func _game_start() -> void:
 	hud_animations.play("info_fade_away")
+	
