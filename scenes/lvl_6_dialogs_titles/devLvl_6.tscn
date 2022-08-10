@@ -17,6 +17,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 760.0 ],
 "_edit_vertical_guides_": [ 288.0 ]
 }
+terrain_speed = null
 
 [node name="Background-day" type="Sprite" parent="."]
 position = Vector2( 144, 256 )

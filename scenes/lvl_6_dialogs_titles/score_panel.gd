@@ -9,6 +9,7 @@ onready var best_score_label = get_node("Control/VBoxContainer2/score_best")
 func _ready():
 	pass
 
+# Señales:
 func _on_Timer_timeout():
 	if counter < top_score:
 		counter += 1
@@ -19,7 +20,6 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 
 func _on_Button_redoo_pressed():
 	get_tree().reload_current_scene()
-
 
 func _on_Button_ok_pressed():
 	# Ir al menu principal

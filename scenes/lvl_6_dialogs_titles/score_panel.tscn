@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/flappy-bird-assets-master/panel.png" type="Texture" id=1]
-[ext_resource path="res://assets/font/flappy-font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://res/font_flappy.tres" type="DynamicFont" id=2]
 [ext_resource path="res://res/font_pixel.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/font/Minecraft.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://res/new_theme.tres" type="Theme" id=5]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/gameover.png" type="Texture" id=6]
 [ext_resource path="res://scenes/lvl_6_dialogs_titles/score_panel.gd" type="Script" id=7]
+[ext_resource path="res://assets/flappy-bird-assets-master/icon_global_board.png" type="Texture" id=8]
+[ext_resource path="res://assets/flappy-bird-assets-master/play_icon.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -16,12 +18,6 @@ action = "jump"
 
 [sub_resource type="ShortCut" id=6]
 shortcut = SubResource( 5 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 18
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -135,9 +131,9 @@ script = ExtResource( 7 )
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -89.0
+margin_left = 55.0
 margin_top = 537.0
-margin_right = 103.0
+margin_right = 247.0
 margin_bottom = 579.0
 texture = ExtResource( 6 )
 stretch_mode = 3
@@ -171,29 +167,29 @@ margin_top = 154.0
 margin_right = 200.0
 margin_bottom = 191.0
 
-[node name="Button_ok" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
-margin_right = 57.0273
+[node name="Button_score_board" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
+margin_right = 49.0273
 margin_bottom = 37.242
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 1 )
-text = "Ok"
+icon = ExtResource( 8 )
 
 [node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 61.0
-margin_right = 113.0
+margin_left = 53.0
+margin_right = 149.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="Button_redoo" type="Button" parent="Control/VBoxContainer/HBoxContainer"]
-margin_left = 117.0
+margin_left = 153.0
 margin_right = 200.027
 margin_bottom = 37.242
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 1 )
 disabled = true
 shortcut = SubResource( 6 )
-text = "REDO"
+icon = ExtResource( 9 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
 anchor_left = 1.0
@@ -217,7 +213,7 @@ align = 2
 margin_top = 20.0
 margin_right = 88.0
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
 text = "0"
 align = 2
 
@@ -234,7 +230,7 @@ align = 2
 margin_top = 63.0
 margin_right = 88.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
 text = "0"
 align = 2
 
@@ -245,7 +241,7 @@ anims/game_over_title = SubResource( 4 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
 
-[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Button_ok" to="." method="_on_Button_ok_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Button_score_board" to="." method="_on_Button_ok_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/Button_redoo" to="." method="_on_Button_redoo_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

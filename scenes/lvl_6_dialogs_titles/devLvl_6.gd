@@ -42,6 +42,9 @@ func stop_game() -> void:
 	for pipe in pipes:
 		pipe.speed = 0
 
+func nameEntryDialogPopUp() -> String:
+	
+	return ""
 
 # Señales:
 func _on_Timer_timeout() -> void:
@@ -56,6 +59,11 @@ func _update_score() -> void:
 	hud_score_label.text = String(score)
 	
 func _game_over_screen()-> void:
+	if score > SCORE.getMinimumScore():
+		var newName = nameEntryDialogPopUp()
+		SCORE.setNewHighScore(score)
+	
+	# nos fijamos que el puntaje no sea maximo:
 	hud_animations.play('game_over')
 	hud_score_panel.top_score = score
 	hud_score_panel.get_node('AnimationPlayer').play('game_over_title')

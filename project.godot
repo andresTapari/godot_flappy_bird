@@ -14,6 +14,10 @@ config/name="Flappy Bird"
 run/main_scene="res://scenes/lvl_6_dialogs_titles/devLvl_6.tscn"
 config/icon="res://assets/flappy-bird-assets-master/icon.png"
 
+[autoload]
+
+SCORE="*res://scenes/lvl_6_dialogs_titles/GLOBAL_DATA.gd"
+
 [display]
 
 window/size/width=288
