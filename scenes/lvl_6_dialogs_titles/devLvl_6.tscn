@@ -55,7 +55,7 @@ rotation = 3.14159
 position = Vector2( 91, 228 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.2
+wait_time = 2.0
 
 [node name="hud_score_6" parent="." instance=ExtResource( 5 )]
 

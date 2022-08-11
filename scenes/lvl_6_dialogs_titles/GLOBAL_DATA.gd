@@ -5,12 +5,15 @@ var topScore: int 		= 0		# Puntaje maximo de todas las partiads
 var currentScore: int 	= 0		# Puntaje maximo de la partida
 
 # Puntajes maximos:
+var dictionaryElement = {"name":"",
+						 "score": 0}
+
 var elementA = {"name": "Andres",
-				"score":10}
+				"score":2}
 var elementB = {"name": "Carlos",
-				"score":30}
+				"score":4}
 var elementC = {"name": "Santi",
-				"score":20}
+				"score":5}
 
 #Lista de puntajes maximos:
 var topScoreList: Array = [elementA,elementB,elementC]
@@ -34,5 +37,10 @@ func getMinimumScore() -> int:
 	return topScoreList[0]["score"]
 
 func setNewHighScore(newName: String, newScore: int) -> void:
-	
-	pass
+	var newElement = dictionaryElement.duplicate() 
+	newElement["name"]  = newName
+	newElement["score"] = newScore
+	topScoreList.append(newElement)
+	sortTopScoreList()
+	topScoreList.remove(0)
+	print(topScoreList)

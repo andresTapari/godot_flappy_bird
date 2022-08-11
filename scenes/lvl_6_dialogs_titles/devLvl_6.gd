@@ -6,11 +6,12 @@ export var terrain_speed = 100
 
 # Precarcamos los pipes
 onready var PIPE = preload("res://scenes/lvl_4_colisiones/pipe_4.tscn")
+onready var NAMEDIALOG = preload('res://scenes/lvl_6_dialogs_titles/name_entry_dialog.tscn')
 
 # Cargamos nodos del hud
 onready var hud_score_label = get_node("hud_score_6/score_label")
 onready var hud_animations  = get_node("hud_score_6/AnimationPlayer")
-onready var hud_score_panel		= get_node("hud_score_6/score_panel")
+onready var hud_score_panel	= get_node("hud_score_6/score_panel")
 
 
 var terrain: Array = [] 		# Lista donde guardamos el terreno
@@ -42,10 +43,6 @@ func stop_game() -> void:
 	for pipe in pipes:
 		pipe.speed = 0
 
-func nameEntryDialogPopUp() -> String:
-	
-	return ""
-
 # Señales:
 func _on_Timer_timeout() -> void:
 	# Creamos nueva instancia de pipe
@@ -59,14 +56,21 @@ func _update_score() -> void:
 	hud_score_label.text = String(score)
 	
 func _game_over_screen()-> void:
-	if score > SCORE.getMinimumScore():
-		var newName = nameEntryDialogPopUp()
-		SCORE.setNewHighScore(score)
 	
-	# nos fijamos que el puntaje no sea maximo:
 	hud_animations.play('game_over')
 	hud_score_panel.top_score = score
 	hud_score_panel.get_node('AnimationPlayer').play('game_over_title')
+	
+	# nos fijamos que el puntaje no sea maximo:
+	yield(hud_score_panel.get_node('AnimationPlayer'),'animation_finished')
+	if score > SCORE.getMinimumScore():
+		var newDialog = NAMEDIALOG.instance()
+		$hud_score_6.add_child(newDialog)
+		newDialog.get_node("AnimationPlayer").play('popUp')
+		yield(newDialog.get_node("HBoxContainer/Button"),"pressed")
+		var newName = newDialog.get_node('MarginContainer/VBoxContainer/HBoxContainer/LineEdit').text
+		newDialog.queue_free()
+		SCORE.setNewHighScore(newName,score)
 	
 func _game_start() -> void:
 	hud_animations.play("info_fade_away")

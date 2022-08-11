@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/font/flappy-font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/info.png" type="Texture" id=2]
 [ext_resource path="res://scenes/lvl_6_dialogs_titles/score_panel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/lvl_6_dialogs_titles/name_entry_dialog.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -248,11 +247,3 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 288.0
 margin_bottom = 512.0
-
-[node name="name_entry_dialog" parent="." instance=ExtResource( 4 )]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -108.0
-margin_top = 112.0
-margin_right = 108.0
-margin_bottom = 216.0
