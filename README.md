@@ -1,4 +1,5 @@
 # godot_flappy_bird
+
 Ejemplo del juego Flappy Bird en Godot
 
 # To do:
@@ -9,7 +10,7 @@ Ejemplo del juego Flappy Bird en Godot
 - [x] Colisiones (lvl 4).
 - [x] Puntaje en pantalla (lvl 5).
 - [x] Mensaje de Game Over (lvl 6).
-- [ ] Tablero de puntaje
-- [ ] Tabla de posicion
-- [ ] Pantalla de titulos 
-- [ ] Transición dia y noche
+- [ ] Tablero de puntaje.
+- [ ] Tabla de posiciones.
+- [ ] Pantalla de titulos.
+- [ ] Transición dia y noche.

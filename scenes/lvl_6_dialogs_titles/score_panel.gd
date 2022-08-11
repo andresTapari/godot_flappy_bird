@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 var top_score: int = 100
 var counter: int   = 0
