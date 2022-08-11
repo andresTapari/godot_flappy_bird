@@ -10,8 +10,8 @@ onready var NAMEDIALOG = preload('res://scenes/lvl_6_dialogs_titles/name_entry_d
 
 # Cargamos nodos del hud
 onready var hud_score_label = get_node("hud_score_6/score_label")
-onready var hud_animations  = get_node("hud_score_6/AnimationPlayer")
-onready var hud_score_panel	= get_node("hud_score_6/score_panel")
+onready var hud  = get_node("hud_score_6")
+#onready var hud_score_panel	= get_node("hud_score_6/score_panel")
 
 
 var terrain: Array = [] 		# Lista donde guardamos el terreno
@@ -19,7 +19,6 @@ var score: int = 0				# Puntaje del jugador
 var game_state: bool = true		#
 
 func _ready() -> void:
-	hud_animations.play("idle")
 	# Cargamos los nodos del terreno
 	terrain = $Path2D.get_children()
 	# Conectamos señal
@@ -57,12 +56,13 @@ func _update_score() -> void:
 	
 func _game_over_screen()-> void:
 	
-	hud_animations.play('game_over')
-	hud_score_panel.top_score = score
-	hud_score_panel.get_node('AnimationPlayer').play('game_over_title')
+	hud.playAnimation("game_over")
+	#hud.play('game_over')
+	#hud_score_panel.top_score = score
+	#hud_score_panel.get_node('AnimationPlayer').play('game_over_title')
 	
 	# nos fijamos que el puntaje no sea maximo:
-	yield(hud_score_panel.get_node('AnimationPlayer'),'animation_finished')
+	#yield(hud_score_panel.get_node('AnimationPlayer'),'animation_finished')
 	if score > SCORE.getMinimumScore():
 		var newDialog = NAMEDIALOG.instance()
 		$hud_score_6.add_child(newDialog)
@@ -73,5 +73,5 @@ func _game_over_screen()-> void:
 		SCORE.setNewHighScore(newName,score)
 	
 func _game_start() -> void:
-	hud_animations.play("info_fade_away")
-	
+	hud.playAnimation("info_fade_away")
+

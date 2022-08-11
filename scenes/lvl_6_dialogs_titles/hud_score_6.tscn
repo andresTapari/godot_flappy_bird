@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/font/flappy-font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/info.png" type="Texture" id=2]
-[ext_resource path="res://scenes/lvl_6_dialogs_titles/score_panel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/lvl_6_dialogs_titles/hud_score_6.gd" type="Script" id=3]
+[ext_resource path="res://assets/flappy-bird-assets-master/sprites/gameover.png" type="Texture" id=4]
+[ext_resource path="res://res/hud_animation_player_animations.tres" type="Animation" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -61,7 +63,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("score_label:visible")
+tracks/4/path = NodePath("TextureRect2:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -70,59 +72,19 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
-
-[sub_resource type="Animation" id=2]
-resource_name = "game_over"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+tracks/5/type = "value"
+tracks/5/path = NodePath("TextureRect2:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("TextureRect:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("score_label:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"values": [ Vector2( 55, 126 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -204,6 +166,7 @@ tracks/2/keys = {
 }
 
 [node name="hud_score_6" type="CanvasLayer"]
+script = ExtResource( 3 )
 
 [node name="score_label" type="Label" parent="."]
 visible = false
@@ -226,7 +189,7 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
-anims/game_over = SubResource( 2 )
+anims/game_over = ExtResource( 5 )
 anims/idle = SubResource( 5 )
 anims/info_fade_away = SubResource( 4 )
 
@@ -236,14 +199,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -92.0
-margin_top = -137.0
-margin_right = 92.0
-margin_bottom = 38.0
+margin_left = -89.0
+margin_top = -177.0
+margin_right = 95.0
+margin_bottom = -2.0
 texture = ExtResource( 2 )
 
-[node name="score_panel" parent="." instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 288.0
-margin_bottom = 512.0
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -89.0
+margin_top = 126.0
+margin_right = 103.0
+margin_bottom = 168.0
+texture = ExtResource( 4 )
+stretch_mode = 3

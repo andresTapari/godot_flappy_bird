@@ -90,7 +90,7 @@ tracks/1/path = NodePath("Control:rect_position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0.4, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -114,7 +114,7 @@ tracks/3/path = NodePath("Control/VBoxContainer/HBoxContainer/Button_redoo:disab
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -123,8 +123,14 @@ tracks/3/keys = {
 }
 
 [node name="score_panel" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -256.0
+margin_right = 144.0
+margin_bottom = 256.0
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
