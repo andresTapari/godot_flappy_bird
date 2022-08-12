@@ -1,20 +1,21 @@
-extends MarginContainer
+extends VBoxContainer
 
-var top_score: int = 100
+var top_score: int = 0
 var counter: int   = 0
 
-onready var score_label      = get_node("Control/VBoxContainer2/score_label")
-onready var best_score_label = get_node("Control/VBoxContainer2/score_best")
+onready var score_label      = get_node("MarginContainer/VBoxContainer3/HBoxContainer/VBoxContainer2/score_label")
+onready var best_score_label = get_node("MarginContainer/VBoxContainer3/HBoxContainer/VBoxContainer2/score_best")
 
 func _ready():
-	pass
+	top_score = SCORE.currentScore
+	
+	$AnimationPlayer.play('fadeIn')
 
 # Señales:
 func _on_Timer_timeout():
 	if counter < top_score:
 		counter += 1
 		score_label.text = String(counter)
-
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	$Timer.start()
 

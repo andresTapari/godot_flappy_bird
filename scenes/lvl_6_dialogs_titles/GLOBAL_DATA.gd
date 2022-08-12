@@ -8,12 +8,12 @@ var currentScore: int 	= 0		# Puntaje maximo de la partida
 var dictionaryElement = {"name":"",
 						 "score": 0}
 
-var elementA = {"name": "Andres",
-				"score":2}
-var elementB = {"name": "Carlos",
-				"score":4}
-var elementC = {"name": "Santi",
-				"score":5}
+var elementA = {"name": "empty",
+				"score":0}
+var elementB = {"name": "empty",
+				"score":0}
+var elementC = {"name": "empty",
+				"score":0}
 
 #Lista de puntajes maximos:
 var topScoreList: Array = [elementA,elementB,elementC]

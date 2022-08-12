@@ -6,7 +6,7 @@ export var terrain_speed = 100
 
 # Precarcamos los pipes
 onready var PIPE = preload("res://scenes/lvl_4_colisiones/pipe_4.tscn")
-onready var NAMEDIALOG = preload('res://scenes/lvl_6_dialogs_titles/name_entry_dialog.tscn')
+#onready var NAMEDIALOG = preload('res://scenes/lvl_6_dialogs_titles/name_entry_dialog.tscn')
 
 # Cargamos nodos del hud
 onready var hud_score_label = get_node("hud_score_6/score_label")
@@ -19,11 +19,16 @@ var score: int = 0				# Puntaje del jugador
 var game_state: bool = true		#
 
 func _ready() -> void:
+	SCORE.currentScore = score
 	# Cargamos los nodos del terreno
 	terrain = $Path2D.get_children()
 	# Conectamos señal
+	
+	#warning-ignore: RETURN_VALUE_DISCARDED
 	$Player_5.connect('update_score',self,'_update_score')
+	#warning-ignore: RETURN_VALUE_DISCARDED
 	$Player_5.connect('game_over',self,'_game_over_screen')
+	#warning-ignore: RETURN_VALUE_DISCARDED
 	$Player_5.connect('game_start',self,'_game_start')
 
 func _process(delta: float) -> void:
@@ -52,7 +57,11 @@ func _on_Timer_timeout() -> void:
 	self.add_child_below_node($PipeSpawner,newPipe)
 
 func _update_score() -> void:
-	hud_score_label.text = String(score)
+	#hud_score_label.text = String(score)
+	SCORE.currentScore = score
+	if SCORE.topScore < score:
+		SCORE.topScore = score
+	hud.updateScore(String(score))
 	
 func _game_over_screen()-> void:
 	
@@ -64,15 +73,15 @@ func _game_over_screen()-> void:
 	
 	# nos fijamos que el puntaje no sea maximo:
 	#yield(hud_score_panel.get_node('AnimationPlayer'),'animation_finished')
-	if score > SCORE.getMinimumScore():
-		var newDialog = NAMEDIALOG.instance()
-		$hud_score_6.add_child(newDialog)
-		newDialog.get_node("AnimationPlayer").play('popUp')
-		yield(newDialog.get_node("HBoxContainer/Button"),"pressed")
-		var newName = newDialog.get_node('MarginContainer/VBoxContainer/HBoxContainer/LineEdit').text
-		newDialog.queue_free()
-		SCORE.setNewHighScore(newName,score)
-	
+#	if score > SCORE.getMinimumScore():
+#		var newDialog = NAMEDIALOG.instance()
+#		$hud_score_6.add_child(newDialog)
+#		newDialog.get_node("AnimationPlayer").play('popUp')
+#		yield(newDialog.get_node("HBoxContainer/Button"),"pressed")
+#		var newName = newDialog.get_node('MarginContainer/VBoxContainer/HBoxContainer/LineEdit').text
+#		newDialog.queue_free()
+#		SCORE.setNewHighScore(newName,score)
+
 func _game_start() -> void:
 	hud.playAnimation("info_fade_away")
 

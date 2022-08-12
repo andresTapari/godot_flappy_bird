@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://res/new_theme.tres" type="Theme" id=1]
-[ext_resource path="res://res/font_flappy.tres" type="DynamicFont" id=2]
+[ext_resource path="res://res/font_flappy.tres" type="DynamicFont" id=1]
+[ext_resource path="res://res/new_theme.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/lvl_6_dialogs_titles/ui_dialogs/ui_score_board.gd" type="Script" id=3]
 [ext_resource path="res://assets/flappy-bird-assets-master/back_icon.png" type="Texture" id=4]
-[ext_resource path="res://scenes/lvl_6_dialogs_titles/score_board.gd" type="Script" id=5]
 
-[node name="score_board" type="VBoxContainer"]
+[node name="ui_score_board" type="VBoxContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -14,7 +14,7 @@ margin_left = -75.0
 margin_top = -84.5
 margin_right = 75.0
 margin_bottom = 84.5
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 150.0
@@ -23,7 +23,7 @@ margin_bottom = 130.0
 [node name="Panel" type="Panel" parent="MarginContainer"]
 margin_right = 150.0
 margin_bottom = 130.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 150.0
@@ -51,7 +51,7 @@ size_flags_horizontal = 3
 margin_left = 26.0
 margin_right = 124.0
 margin_bottom = 19.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 text = "Top Scores"
 align = 1
 
@@ -86,7 +86,7 @@ margin_bottom = 169.0
 [node name="Button" type="Button" parent="HBoxContainer"]
 margin_right = 45.0273
 margin_bottom = 35.242
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 icon = ExtResource( 4 )
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
