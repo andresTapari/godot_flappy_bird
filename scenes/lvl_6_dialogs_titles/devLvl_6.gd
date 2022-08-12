@@ -57,6 +57,7 @@ func _update_score() -> void:
 func _game_over_screen()-> void:
 	
 	hud.playAnimation("game_over")
+	yield(hud.get_node('AnimationPlayer'),'animation_finished')
 	#hud.play('game_over')
 	#hud_score_panel.top_score = score
 	#hud_score_panel.get_node('AnimationPlayer').play('game_over_title')
