@@ -250,7 +250,7 @@ texture = ExtResource( 5 )
 position = Vector2( 91, 83 )
 frames = SubResource( 2 )
 animation = "fly"
-frame = 2
+frame = 1
 playing = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]

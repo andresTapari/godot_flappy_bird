@@ -13,5 +13,6 @@ Ejemplo del juego Flappy Bird en Godot
 - [ ] Tablero de puntaje, falta mejor puntaje (lvl 6). 
 - [x] Tabla de posiciones (lvl 6).
 - [x] Pantalla de titulos (lvl 6).
+- [ ] Guardar puntaje en sistema de archivos.
 - [ ] Efectos de sonidos.
 - [ ] Transición dia y noche.

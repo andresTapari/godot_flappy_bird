@@ -108,10 +108,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 36.0
-margin_top = 221.0
-margin_right = 252.0
-margin_bottom = 358.0
+margin_left = -108.0
+margin_top = -35.0
+margin_right = 108.0
+margin_bottom = 102.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
