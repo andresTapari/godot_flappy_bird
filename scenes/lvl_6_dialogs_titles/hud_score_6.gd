@@ -10,9 +10,6 @@ var currentDialog: Control
 func _ready():
 	playAnimation("idle")
 
-#func _input(event: InputEvent) -> void:
-#	get_tree().get_root().set_input_as_handled()
-	
 func updateScore(score: String):
 	$score_label.text = score
 
@@ -20,28 +17,33 @@ func playAnimation(animation: String):
 	$AnimationPlayer.play(animation)
 
 func scorePanelFadeIn():
-	var scorePanelDialog = SCOREPANEL.instance()
-	self.add_child(scorePanelDialog)
+	currentDialog= SCOREPANEL.instance()
+	currentDialog.connect('scoreBoardButton',self,"handleScoreBoardButton")
+	self.add_child(currentDialog)
 
 func nameDialogFadeIn():
 	# Creamos la ventana de dialogo
 	currentDialog = NAMEDIALOG.instance()
 	# Conectamos la señal
 	#warning-ignore:RETURN_VALUE_DISCARDED
-	currentDialog.connect('okButtonPressed',self,'newNameEntered')
+	currentDialog.connect('okButtonPressed',self,'handleNewNameEntered')
 	# La agregamos al HUD
 	self.add_child(currentDialog)
 
-func newNameEntered():
+func handleNewNameEntered():
 	currentDialog.fadeOut()
 	yield(currentDialog,'tree_exited')
 	currentDialog = SCOREBOARD.instance()
 	self.add_child(currentDialog)
 
-
-func _on_Button_pressed() -> void:
-	get_tree().paused = !get_tree().paused
-
+func handleScoreBoardButton():
+	currentDialog.fadeOut()
+	yield(currentDialog,'tree_exited')
+	currentDialog = SCOREBOARD.instance()
+	self.add_child(currentDialog)
 
 func _on_Button_mouse_entered() -> void:
 	$Button.mouse_filter = Control.MOUSE_FILTER_STOP
+
+func _on_TextureButton_pressed() -> void:
+	get_tree().paused = !get_tree().paused

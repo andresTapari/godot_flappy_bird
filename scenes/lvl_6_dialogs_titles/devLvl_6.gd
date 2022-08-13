@@ -23,7 +23,7 @@ func _ready() -> void:
 	SCORE.currentScore = score
 	# Cargamos los nodos del terreno
 	terrain = $Path2D.get_children()
-	# Conectamos señal
+	# Conectamos las señales del jugador
 	
 	#warning-ignore: RETURN_VALUE_DISCARDED
 	$Player_5.connect('update_score',self,'_update_score')

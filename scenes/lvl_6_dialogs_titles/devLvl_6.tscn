@@ -18,6 +18,8 @@ __meta__ = {
 "_edit_vertical_guides_": [ 288.0 ]
 }
 
+[node name="hud_score_6" parent="." instance=ExtResource( 5 )]
+
 [node name="Background-day" type="Sprite" parent="."]
 position = Vector2( 144, 256 )
 texture = ExtResource( 4 )
@@ -52,11 +54,9 @@ rotate = false
 rotation = 3.14159
 
 [node name="Player_5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 91, 228 )
+position = Vector2( 91, 204 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-
-[node name="hud_score_6" parent="." instance=ExtResource( 5 )]
+wait_time = 1.6
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

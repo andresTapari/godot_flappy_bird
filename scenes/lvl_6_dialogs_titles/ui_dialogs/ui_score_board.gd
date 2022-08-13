@@ -17,5 +17,8 @@ func create_score_board() -> void:
 		newElement.get_node("Label_score").text= String(element["score"])
 		list.add_child_below_node(startList,newElement)
 
-func _on_Button2_pressed() -> void:
+func _on_TextureButton2_pressed() -> void:
 	get_tree().reload_current_scene()
+
+func _on_TextureButton_pressed() -> void:
+	get_tree().change_scene('res://scenes/lvl_6_dialogs_titles/titleScreen.tscn')

@@ -3,8 +3,8 @@
 [ext_resource path="res://res/font_flappy.tres" type="DynamicFont" id=1]
 [ext_resource path="res://res/new_theme.tres" type="Theme" id=2]
 [ext_resource path="res://scenes/lvl_6_dialogs_titles/ui_dialogs/ui_score_board.gd" type="Script" id=3]
-[ext_resource path="res://assets/flappy-bird-assets-master/home.png" type="Texture" id=4]
-[ext_resource path="res://assets/flappy-bird-assets-master/play_icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/flappy-bird-assets-master/buttons/homeButton.png" type="Texture" id=4]
+[ext_resource path="res://assets/flappy-bird-assets-master/buttons/playButton.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -34,7 +34,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 69, 527 ), Vector2( 69, 171.5 ) ]
+"values": [ Vector2( 39, 527 ), Vector2( 39, 160 ) ]
 }
 
 [node name="ui_score_board" type="VBoxContainer"]
@@ -42,49 +42,50 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 69.0
-margin_top = 527.0
-margin_right = 219.0
-margin_bottom = 696.0
+margin_left = -75.0
+margin_top = 271.0
+margin_right = 145.0
+margin_bottom = 463.0
+rect_min_size = Vector2( 210, 192 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 150.0
+margin_right = 220.0
 margin_bottom = 130.0
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
-margin_right = 150.0
+margin_right = 220.0
 margin_bottom = 130.0
 theme = ExtResource( 2 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 150.0
+margin_right = 220.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 150, 130 )
 alignment = 2
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 150.0
+margin_right = 220.0
 margin_bottom = 4.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
 margin_top = 8.0
-margin_right = 150.0
+margin_right = 220.0
 margin_bottom = 27.0
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 22.0
+margin_right = 57.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 26.0
-margin_right = 124.0
+margin_left = 61.0
+margin_right = 159.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "Top Scores"
@@ -92,15 +93,15 @@ align = 1
 
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer2/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 128.0
-margin_right = 150.0
+margin_left = 163.0
+margin_right = 220.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 31.0
-margin_right = 150.0
+margin_right = 220.0
 margin_bottom = 78.0
 rect_pivot_offset = Vector2( -365, 0 )
 size_flags_vertical = 3
@@ -108,38 +109,37 @@ size_flags_vertical = 3
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 82.0
-margin_right = 150.0
+margin_right = 220.0
 margin_bottom = 130.0
 rect_pivot_offset = Vector2( -365, 0 )
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_top = 134.0
-margin_right = 150.0
-margin_bottom = 169.0
+margin_right = 220.0
+margin_bottom = 192.0
 
-[node name="Button" type="Button" parent="HBoxContainer"]
-margin_right = 45.0273
-margin_bottom = 35.242
-theme = ExtResource( 2 )
-icon = ExtResource( 4 )
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+margin_right = 104.0
+margin_bottom = 58.0
+texture_normal = ExtResource( 4 )
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 49.0
-margin_right = 99.0
-margin_bottom = 35.0
+margin_left = 108.0
+margin_right = 112.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
-margin_left = 103.0
-margin_right = 150.027
-margin_bottom = 35.242
-theme = ExtResource( 2 )
-icon = ExtResource( 5 )
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+margin_left = 116.0
+margin_right = 220.0
+margin_bottom = 58.0
+texture_normal = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 anims/fadeIn = SubResource( 2 )
 
-[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_TextureButton2_pressed"]

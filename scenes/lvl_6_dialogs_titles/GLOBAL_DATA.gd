@@ -8,11 +8,11 @@ var currentScore: int 	= 0		# Puntaje actual de la partida
 var dictionaryElement = {"name":"",
 						 "score": 0}
 
-var elementA = {"name": "empty",
+var elementA = {"name": "...",
 				"score":0}
-var elementB = {"name": "empty",
+var elementB = {"name": "...",
 				"score":0}
-var elementC = {"name": "empty",
+var elementC = {"name": "...",
 				"score":0}
 
 #Lista de puntajes maximos:

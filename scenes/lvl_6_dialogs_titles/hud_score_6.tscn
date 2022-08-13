@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/font/flappy-font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/info.png" type="Texture" id=2]
 [ext_resource path="res://scenes/lvl_6_dialogs_titles/hud_score_6.gd" type="Script" id=3]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/gameover.png" type="Texture" id=4]
 [ext_resource path="res://res/hud_animation_player_animations.tres" type="Animation" id=5]
-[ext_resource path="res://assets/flappy-bird-assets-master/pause_icon.png" type="Texture" id=6]
-[ext_resource path="res://res/new_theme.tres" type="Theme" id=7]
+[ext_resource path="res://assets/flappy-bird-assets-master/buttons/pauseButton.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -88,6 +87,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 55, 126 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("TextureButton:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "idle"
@@ -122,6 +133,18 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -171,16 +194,6 @@ tracks/2/keys = {
 pause_mode = 2
 script = ExtResource( 3 )
 
-[node name="Button" type="Button" parent="."]
-pause_mode = 2
-margin_left = 3.0
-margin_top = 3.0
-margin_right = 48.0273
-margin_bottom = 38.242
-input_pass_on_modal_close_click = false
-theme = ExtResource( 7 )
-icon = ExtResource( 6 )
-
 [node name="score_label" type="Label" parent="."]
 visible = false
 anchor_left = 0.5
@@ -216,18 +229,28 @@ margin_left = -89.0
 margin_top = -177.0
 margin_right = 95.0
 margin_bottom = -2.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -89.0
+margin_left = 55.0
 margin_top = 126.0
-margin_right = 103.0
+margin_right = 247.0
 margin_bottom = 168.0
+mouse_filter = 2
 texture = ExtResource( 4 )
 stretch_mode = 3
 
-[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[node name="TextureButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 16.0
+margin_bottom = 17.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 6 )
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

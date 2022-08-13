@@ -4,7 +4,7 @@ extends VBoxContainer
 signal okButtonPressed
 
 # Nodos
-onready var okButton   = get_node("HBoxContainer/Button")
+onready var okButton   = get_node('HBoxContainer/okButton')
 onready var lineEdit   = get_node("MarginContainer/VBoxContainer/HBoxContainer/LineEdit")
 onready var scoreLabel = get_node('MarginContainer/VBoxContainer/ScoreLabel')
 
@@ -22,7 +22,7 @@ func _on_LineEdit_text_changed(new_text: String) -> void:
 	else:
 		okButton.disabled = true
 
-func _on_Button_pressed() -> void:
+func _on_okButton_pressed() -> void:
 	var newName = lineEdit.text
 	SCORE.setNewHighScore(newName)
 	emit_signal("okButtonPressed")

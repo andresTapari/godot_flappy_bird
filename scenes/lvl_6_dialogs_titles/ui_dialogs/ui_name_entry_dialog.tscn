@@ -3,8 +3,8 @@
 [ext_resource path="res://res/font_flappy.tres" type="DynamicFont" id=1]
 [ext_resource path="res://res/font_pixel.tres" type="DynamicFont" id=2]
 [ext_resource path="res://res/new_theme.tres" type="Theme" id=3]
-[ext_resource path="res://assets/flappy-bird-assets-master/ok_icon.png" type="Texture" id=4]
 [ext_resource path="res://scenes/lvl_6_dialogs_titles/ui_dialogs/ui_name_entry_dialog.gd" type="Script" id=5]
+[ext_resource path="res://assets/flappy-bird-assets-master/buttons/okButton.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -208,21 +208,20 @@ margin_bottom = 98.0
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_top = 102.0
 margin_right = 216.0
-margin_bottom = 137.0
+margin_bottom = 130.0
 
 [node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 168.0
-margin_bottom = 35.0
+margin_right = 132.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HBoxContainer"]
-margin_left = 172.0
-margin_right = 216.027
-margin_bottom = 35.242
-theme = ExtResource( 3 )
+[node name="okButton" type="TextureButton" parent="HBoxContainer"]
+margin_left = 136.0
+margin_right = 216.0
+margin_bottom = 28.0
 disabled = true
-icon = ExtResource( 4 )
+texture_normal = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
@@ -230,4 +229,4 @@ anims/popOut = SubResource( 3 )
 anims/popUp = SubResource( 2 )
 
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
-[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer/okButton" to="." method="_on_okButton_pressed"]

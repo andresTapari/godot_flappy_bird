@@ -15,7 +15,7 @@ var state_started: bool = false			# Bandera si la partida comenzo
 var state_knok_down: bool = false		# Bandera si el jugador fue knokeado
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed('jump') and state_knok_down == false:
 		# Si el jugador no habia comenzado
 		if !state_started:
@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 			state_started = true
 		velocity.y = -jump_speed
 		$AnimatedSprite.rotation_degrees = -30
-	
+		
 func _process(delta: float) -> void:
 	# Detectamos tecla de salto
 #	if Input.is_action_just_pressed('jump') and state_knok_down == false:
