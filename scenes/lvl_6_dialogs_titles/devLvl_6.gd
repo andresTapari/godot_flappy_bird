@@ -59,11 +59,12 @@ func _on_Timer_timeout() -> void:
 func _update_score() -> void:
 	#hud_score_label.text = String(score)
 	SCORE.currentScore = score
-	if SCORE.topScore < score:
-		SCORE.topScore = score
 	hud.updateScore(String(score))
 	
 func _game_over_screen()-> void:
+	# Evaluamos el puntaje conseguido si es mayor
+	if SCORE.topScore < score:
+		SCORE.topScore = score
 	
 	hud.playAnimation("game_over")
 	yield(hud.get_node('AnimationPlayer'),'animation_finished')
