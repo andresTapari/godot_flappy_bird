@@ -4,18 +4,17 @@ extends Node2D
 # Variables de exportacion
 export var terrain_speed = 100
 
-# Precarcamos los pipes
+# Precarcamos los nodos base:
 onready var PIPE = preload("res://scenes/lvl_4_colisiones/pipe_4.tscn")
-#onready var NAMEDIALOG = preload('res://scenes/lvl_6_dialogs_titles/name_entry_dialog.tscn')
+onready var NAMEDIALOG = preload('res://scenes/lvl_6_dialogs_titles/ui_dialogs/ui_name_entry_dialog.tscn')
 
 # Cargamos nodos del hud
 onready var hud_score_label = get_node("hud_score_6/score_label")
 onready var hud  = get_node("hud_score_6")
 #onready var hud_score_panel	= get_node("hud_score_6/score_panel")
 
-
+export var score: int = 0				# Puntaje del jugador
 var terrain: Array = [] 		# Lista donde guardamos el terreno
-var score: int = 0				# Puntaje del jugador
 var game_state: bool = true		#
 
 func _ready() -> void:
@@ -62,26 +61,16 @@ func _update_score() -> void:
 	hud.updateScore(String(score))
 	
 func _game_over_screen()-> void:
-	# Evaluamos el puntaje conseguido si es mayor
-	if SCORE.topScore < score:
-		SCORE.topScore = score
-	
+	# Reproducimos animacion de Game Over:
 	hud.playAnimation("game_over")
+	# Esperamos a que termine:
 	yield(hud.get_node('AnimationPlayer'),'animation_finished')
-	#hud.play('game_over')
-	#hud_score_panel.top_score = score
-	#hud_score_panel.get_node('AnimationPlayer').play('game_over_title')
-	
-	# nos fijamos que el puntaje no sea maximo:
-	#yield(hud_score_panel.get_node('AnimationPlayer'),'animation_finished')
-#	if score > SCORE.getMinimumScore():
-#		var newDialog = NAMEDIALOG.instance()
-#		$hud_score_6.add_child(newDialog)
-#		newDialog.get_node("AnimationPlayer").play('popUp')
-#		yield(newDialog.get_node("HBoxContainer/Button"),"pressed")
-#		var newName = newDialog.get_node('MarginContainer/VBoxContainer/HBoxContainer/LineEdit').text
-#		newDialog.queue_free()
-#		SCORE.setNewHighScore(newName,score)
+	# Si el puntaje es mayor que el minimo del tablero de posiciones
+	if score > SCORE.getMinimumScore():
+		# Creamos la ventana de dialogo
+		hud.nameDialogFadeIn()
+	else:
+		hud.scorePanelFadeIn()
 
 func _game_start() -> void:
 	hud.playAnimation("info_fade_away")

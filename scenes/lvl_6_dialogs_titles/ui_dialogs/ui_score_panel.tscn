@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/font/Minecraft.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://res/new_theme.tres" type="Theme" id=4]
 [ext_resource path="res://scenes/lvl_6_dialogs_titles/ui_dialogs/ui_score_panel.gd" type="Script" id=5]
-[ext_resource path="res://assets/flappy-bird-assets-master/icon_global_board.png" type="Texture" id=6]
+[ext_resource path="res://assets/flappy-bird-assets-master/home.png" type="Texture" id=6]
 [ext_resource path="res://assets/flappy-bird-assets-master/play_icon.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -188,7 +188,7 @@ margin_right = 160.0
 margin_bottom = 37.0
 
 [node name="Button_score_board" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 49.0273
+margin_right = 45.0273
 margin_bottom = 37.242
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
@@ -196,7 +196,7 @@ icon = ExtResource( 6 )
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 53.0
+margin_left = 49.0
 margin_right = 109.0
 margin_bottom = 37.0
 size_flags_horizontal = 3

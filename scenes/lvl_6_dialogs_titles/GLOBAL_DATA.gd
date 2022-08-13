@@ -2,7 +2,7 @@ extends Node
 
 # Puntajes de partida:
 var topScore: int 		= 0		# Puntaje maximo de todas las partiads
-var currentScore: int 	= 0		# Puntaje maximo de la partida
+var currentScore: int 	= 0		# Puntaje actual de la partida
 
 # Puntajes maximos:
 var dictionaryElement = {"name":"",
@@ -36,10 +36,10 @@ func getMinimumScore() -> int:
 	sortTopScoreList()
 	return topScoreList[0]["score"]
 
-func setNewHighScore(newName: String, newScore: int) -> void:
+func setNewHighScore(newName: String) -> void:
 	var newElement = dictionaryElement.duplicate() 
 	newElement["name"]  = newName
-	newElement["score"] = newScore
+	newElement["score"] = currentScore
 	topScoreList.append(newElement)
 	sortTopScoreList()
 	topScoreList.remove(0)

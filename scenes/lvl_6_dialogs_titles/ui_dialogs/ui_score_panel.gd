@@ -8,7 +8,6 @@ onready var best_score_label = get_node("MarginContainer/VBoxContainer3/HBoxCont
 
 func _ready():
 	top_score = SCORE.currentScore
-	
 	$AnimationPlayer.play('fadeIn')
 
 # Señales:
@@ -20,8 +19,8 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	$Timer.start()
 
 func _on_Button_redoo_pressed():
+	#warning-ignore:RETURN_VALUE_DISCARDED
 	get_tree().reload_current_scene()
 
 func _on_Button_ok_pressed():
-	# Ir al menu principal
-	pass # Replace with function body.
+	pass
