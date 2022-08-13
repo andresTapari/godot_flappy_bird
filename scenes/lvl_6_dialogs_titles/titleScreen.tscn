@@ -190,6 +190,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 52, 114 ), Vector2( 52, 77 ), Vector2( 52, 114 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBoxContainer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 34, 294 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6.5, 467 ) ]
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -250,7 +274,6 @@ texture = ExtResource( 5 )
 position = Vector2( 91, 83 )
 frames = SubResource( 2 )
 animation = "fly"
-frame = 1
 playing = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
