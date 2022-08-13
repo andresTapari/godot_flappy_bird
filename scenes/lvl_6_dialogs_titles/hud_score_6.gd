@@ -10,6 +10,9 @@ var currentDialog: Control
 func _ready():
 	playAnimation("idle")
 
+#func _input(event: InputEvent) -> void:
+#	get_tree().get_root().set_input_as_handled()
+	
 func updateScore(score: String):
 	$score_label.text = score
 
@@ -34,3 +37,11 @@ func newNameEntered():
 	yield(currentDialog,'tree_exited')
 	currentDialog = SCOREBOARD.instance()
 	self.add_child(currentDialog)
+
+
+func _on_Button_pressed() -> void:
+	get_tree().paused = !get_tree().paused
+
+
+func _on_Button_mouse_entered() -> void:
+	$Button.mouse_filter = Control.MOUSE_FILTER_STOP

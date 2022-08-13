@@ -13,7 +13,9 @@ onready var hud_score_label = get_node("hud_score_6/score_label")
 onready var hud  = get_node("hud_score_6")
 #onready var hud_score_panel	= get_node("hud_score_6/score_panel")
 
-export var score: int = 0				# Puntaje del jugador
+export var score: int = 0		# Puntaje del jugador
+var highScore: int = 0			# Puntaje maximo de todos los jugadores
+
 var terrain: Array = [] 		# Lista donde guardamos el terreno
 var game_state: bool = true		#
 
@@ -67,9 +69,10 @@ func _game_over_screen()-> void:
 	yield(hud.get_node('AnimationPlayer'),'animation_finished')
 	# Si el puntaje es mayor que el minimo del tablero de posiciones
 	if score > SCORE.getMinimumScore():
-		# Creamos la ventana de dialogo
+		# Creamos la ventana de dialogo solicitando nombre
 		hud.nameDialogFadeIn()
 	else:
+		# Creamos la ventana de dialogo mostrando puntaje
 		hud.scorePanelFadeIn()
 
 func _game_start() -> void:

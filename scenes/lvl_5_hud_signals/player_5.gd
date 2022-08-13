@@ -14,8 +14,8 @@ var velocity: Vector2 = Vector2.ZERO
 var state_started: bool = false			# Bandera si la partida comenzo
 var state_knok_down: bool = false		# Bandera si el jugador fue knokeado
 
-func _process(delta: float) -> void:
-	# Detectamos tecla de salto
+
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed('jump') and state_knok_down == false:
 		# Si el jugador no habia comenzado
 		if !state_started:
@@ -24,11 +24,24 @@ func _process(delta: float) -> void:
 			get_parent().get_node("Timer").start()
 			# Establecemos la variable de comienzo como verdadero
 			state_started = true
-		
-		# Si hay un salto establecemos que el movimiento 
-		# en y es la velocidad de salto
 		velocity.y = -jump_speed
 		$AnimatedSprite.rotation_degrees = -30
+	
+func _process(delta: float) -> void:
+	# Detectamos tecla de salto
+#	if Input.is_action_just_pressed('jump') and state_knok_down == false:
+#		# Si el jugador no habia comenzado
+#		if !state_started:
+#			emit_signal('game_start')
+#			# Buscamos el timer del nivel, y lo iniciamos
+#			get_parent().get_node("Timer").start()
+#			# Establecemos la variable de comienzo como verdadero
+#			state_started = true
+#
+		# Si hay un salto establecemos que el movimiento 
+		# en y es la velocidad de salto
+#		velocity.y = -jump_speed
+#		$AnimatedSprite.rotation_degrees = -30
 
 	
 	# Rotamos el personaje:
