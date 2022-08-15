@@ -8,11 +8,14 @@ onready var score_label      = get_node("MarginContainer/VBoxContainer3/HBoxCont
 onready var best_score_label = get_node("MarginContainer/VBoxContainer3/HBoxContainer/VBoxContainer2/score_best")
 
 # Variables:
-var top_score: int = 0
-var counter: int   = 0
+var top_score:  int = 0
+var best_score: int = 0
+var counter:  int   = 0
 
 func _ready():
 	top_score = SCORE.currentScore
+	best_score = SCORE.getMinimumScore()
+	best_score_label.text = String(best_score)
 	$AnimationPlayer.play('fadeIn')
 
 func fadeOut() -> void:

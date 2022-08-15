@@ -22,7 +22,13 @@ func _on_LineEdit_text_changed(new_text: String) -> void:
 	else:
 		okButton.disabled = true
 
+func _on_LineEdit_text_entered(new_text: String) -> void:
+	#Si se preciona la tecla ENTER y el texto no esta vacio
+	if !new_text.empty():
+		_on_okButton_pressed()
+
 func _on_okButton_pressed() -> void:
 	var newName = lineEdit.text
 	SCORE.setNewHighScore(newName)
 	emit_signal("okButtonPressed")
+
