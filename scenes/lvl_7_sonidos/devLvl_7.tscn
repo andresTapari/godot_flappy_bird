@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/lvl_7_sonidos/devLvl_7.gd" type="Script" id=1]
 [ext_resource path="res://scenes/lvl_2_escenario/tierra.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/lvl_7_sonidos/player_7.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/flappy-bird-assets-master/sprites/background-day.png" type="Texture" id=4]
 [ext_resource path="res://scenes/lvl_7_sonidos/hud_7.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/flappy-bird-assets-master/audio/wing.wav" type="AudioStream" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -56,7 +55,6 @@ rotation = 3.14159
 wait_time = 1.4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
 
 [node name="hud" parent="." instance=ExtResource( 5 )]
 

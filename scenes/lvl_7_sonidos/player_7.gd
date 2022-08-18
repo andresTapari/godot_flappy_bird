@@ -31,8 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		velocity.y = -jump_speed
 		$AudioStreamPlayer.play()
 		$AnimatedSprite.rotation_degrees = -30
-		
-		
+
+
 func _process(delta: float) -> void:
 
 	# Rotamos el personaje:
