@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Variables :
-export var gravity: float 		= 650	
+export var gravity: float 		= 650
 export var jump_speed: float 	= 250
 
 # Variables locales:

@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/lvl_7_sonidos/devLvl_7.gd" type="Script" id=1]
+[ext_resource path="res://scenes/lvl_2_escenario/tierra.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/lvl_7_sonidos/player_7.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/flappy-bird-assets-master/sprites/background-day.png" type="Texture" id=4]
+[ext_resource path="res://scenes/lvl_7_sonidos/hud_7.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/flappy-bird-assets-master/audio/wing.wav" type="AudioStream" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 456, 480, 0, 0, 0, 0, -192, 480 )
+}
+
+[node name="Lvl_7" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 760.0 ],
+"_edit_vertical_guides_": [ 288.0 ]
+}
+
+[node name="Background-day" type="Sprite" parent="."]
+position = Vector2( 144, 256 )
+texture = ExtResource( 4 )
+
+[node name="PipeSpawner" type="Position2D" parent="."]
+position = Vector2( 312, 232 )
+
+[node name="Path2D" type="Path2D" parent="." groups=["world"]]
+position = Vector2( 0, 0.724 )
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 456, 456 )
+rotation = 3.14159
+v_offset = -24.0
+rotate = false
+
+[node name="StaticBody2D2" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
+rotation = 3.14159
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 143.296, 456 )
+rotation = -3.14158
+offset = 313.0
+v_offset = -24.0
+rotate = false
+
+[node name="StaticBody2D2" parent="Path2D/PathFollow2D2" instance=ExtResource( 2 )]
+rotation = 3.14159
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="hud" parent="." instance=ExtResource( 5 )]
+
+[node name="Player_7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 59, 224 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
