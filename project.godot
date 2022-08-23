@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "FileSystem",
+"language": "GDScript",
+"path": "res://scenes/lvl_8_save/FileSystem.gd"
+} ]
+_global_script_class_icons={
+"FileSystem": ""
+}
+
 [application]
 
 config/name="Flappy Bird"

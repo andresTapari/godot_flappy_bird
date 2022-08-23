@@ -4,6 +4,9 @@ onready var SCOREBOARD = preload('res://scenes/lvl_6_dialogs_titles/ui_dialogs/u
 
 export var terrain_speed = 100
 
+#onready var lvlPath: String = 'res://scenes/lvl_6_dialogs_titles/devLvl_6.tscn'
+onready var lvlPath: String = "res://scenes/lvl_7_sonidos/devLvl_7.tscn"
+
 var terrain: Array = [] #lista donde guardamos los nodos
 
 func _ready() -> void:
@@ -14,8 +17,7 @@ func _process(delta: float) -> void:
 		platform.offset += terrain_speed * delta
 
 func _on_playButton_pressed() -> void:
-	get_tree().change_scene('res://scenes/lvl_6_dialogs_titles/devLvl_6.tscn')
-
+	get_tree().change_scene(lvlPath)
 
 func _on_scoreBoardButton_pressed() -> void:
 	$CanvasLayer/AnimationPlayer.play('fadeAway')

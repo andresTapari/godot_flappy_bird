@@ -15,16 +15,23 @@ var elementB = {"name": "...",
 var elementC = {"name": "...",
 				"score":0}
 
+
+# lvl_8_save: Cargamos clase del sistema de guardado
+onready var fs = FileSystem.new()
+
 #Lista de puntajes maximos:
-var topScoreList: Array = [elementA,elementB,elementC]
+var topScoreList: Array = [elementA ,elementB ,elementC]
 
 func _ready():
 	sortTopScoreList()
-	print(getMinimumScore())
-
+	
+	# Ver lvl_8_save:
+	var tempData = fs.loadFromFile()
+	if !tempData.empty():
+		topScoreList = tempData
+	
 func sortTopScoreList() -> void:
 	topScoreList.sort_custom(self, "customComparison")
-	print(topScoreList)
 
 func customComparison(a, b) -> bool:
 	if typeof(a["score"]) != typeof(b["score"]):
@@ -43,4 +50,4 @@ func setNewHighScore(newName: String) -> void:
 	topScoreList.append(newElement)
 	sortTopScoreList()
 	topScoreList.remove(0)
-	print(topScoreList)
+	fs.saveToFile(topScoreList)
