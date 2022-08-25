@@ -15,4 +15,4 @@ Ejemplo del juego Flappy Bird en Godot
 - [x] Pantalla de titulos (lvl 6).
 - [x] Guardar puntaje en sistema de archivos. (Lvl 8)
 - [x] Efectos de sonidos.(Lvl 7)
-- [x] Transición dia y noche. (Lvl 9)
+- [ ] Transición dia y noche. (Lvl 9)
