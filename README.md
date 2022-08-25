@@ -4,6 +4,9 @@ Ejemplo del juego Flappy Bird en Godot
 
 ![screen_shot](https://github.com/andresTapari/godot_flappy_bird/blob/main/assets/flappy-bird-assets-master/screen_shot.png)
 
+# Link del juego:
+Prueba el [juego](https://andrestapa.itch.io/flappy-bird-godot-clone).
+
 # To do:
 
 - [x] Movimiento player (lvl 1).
