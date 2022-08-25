@@ -1,4 +1,4 @@
-# godot_flappy_bird
+# Flappy Bird (made in Godot)
 
 Ejemplo del juego Flappy Bird en Godot
 
@@ -13,6 +13,6 @@ Ejemplo del juego Flappy Bird en Godot
 - [x] Tablero de puntaje (lvl 6). 
 - [x] Tabla de posiciones (lvl 6).
 - [x] Pantalla de titulos (lvl 6).
-- [ ] Guardar puntaje en sistema de archivos.
-- [ ] Efectos de sonidos.
-- [ ] Transición dia y noche.
+- [x] Guardar puntaje en sistema de archivos. (Lvl 8)
+- [x] Efectos de sonidos.(Lvl 7)
+- [ ] Transición dia y noche. (Lvl 9)
